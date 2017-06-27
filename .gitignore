@@ -1,7 +1,10 @@
-.gradle/
-.idea/
-out/
-build/
-frontendkotlin/.gradle/
-frontendkotlin/out/
-frontendkotlin/build/
+.gradle
+.idea
+out
+build
+kotlinfrontend/.gradle
+kotlinfrontend/out
+kotlinfrontend/build
+kotlinbackend/.gradle
+kotlinbackend/out
+kotlinbackend/.gradle
