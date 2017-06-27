@@ -1,0 +1,7 @@
+.gradle/
+.idea/
+out/
+build/
+frontendkotlin/.gradle/
+frontendkotlin/out/
+frontendkotlin/build/
