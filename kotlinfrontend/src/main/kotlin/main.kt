@@ -14,7 +14,7 @@ fun main(args: Array<String>) {
         //Example of how to add stylesheets dynamically
         //add stylesheet if we have any
         val head = document.getElementsByTagName("head")
-        head[0]?.appendChild(createStylesheetLink("style.css"))
+        head[0]?.appendChild(createStylesheetLink("css/style.css"))
         //bind elements
         val input = document.getElementById("count_id") as HTMLInputElement
         val button = document.getElementById("button_id")
@@ -29,6 +29,9 @@ fun fetch(count: String): Unit {
     val url = "http://localhost:8080/api/ping/$count"
     val req = XMLHttpRequest()
     req.onloadend = fun(event: Event){
+        if (req.status.toInt() != 200) {
+            return;
+        }
         val text = req.responseText
         println(text)
         val objArray  = JSON.parse<Array<Json>>(text)
@@ -38,6 +41,9 @@ fun fetch(count: String): Unit {
             val message = it["message"]
             textarea.value += "$message\n"
         }
+    }
+    req.onerror = fun (_) {
+
     }
     req.open("GET", url, true)
     req.send()
